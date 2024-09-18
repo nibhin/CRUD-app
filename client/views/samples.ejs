@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Details</title>
+    <link rel="stylesheet" href="/samples.css">
+</head>
+<body>
+    <h1>Football Players</h1>
+    <div>
+        <form action="/save" method="post" enctype="multipart/form-data">
+            <div>
+                <h3>Registration Form</h3>
+                <input type="file" name="pic" id="pic" accept="image/*" required>
+            </div>
+            <div>
+                <label for="playerno">Player Number</label>
+                <input type="text" name="playerno" id="playerno" required>
+            </div>
+            <div>
+                <label for="jerseyno">Jersey Number</label>
+                <input type="text" name="jerseyno" id="jerseyno" required>
+            </div>
+            <div>
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div>
+                <label for="age">Age</label>
+                <input type="text" name="age" id="age" required>
+            </div>
+            <div>
+                <label for="app">Appearances</label>
+                <input type="text" name="app" id="app" required>
+            </div>
+            <div>
+                <label for="goal">Goals</label>
+                <input type="text" name="goal" id="goal" required>
+            </div>
+            <div>
+                <label for="assist">Assists</label>
+                <input type="text" name="assist" id="assist" required>
+            </div>
+            <div>
+                <label for="card">Cards</label>
+                <input type="text" name="card" id="card" required>
+            </div>
+            <div>
+                <button type="submit">REGISTER</button>
+            </div>
+        </form>
+    </div>
+    <h1>Enrolled Players</h1>
+    <% if (p.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>PHOTO</th>
+                    <th>PLAYER NO</th>
+                    <th>JERSEY NO</th>
+                    <th>FULL NAME</th>
+                    <th>AGE</th>
+                    <th>APPEARANCES</th>
+                    <th>CAREER GOALS</th>
+                    <th>CAREER ASSISTS</th>
+                    <th>CARDS</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% p.forEach((detail) => { %>
+                <tr>
+                    <td><img src="<%= detail.pic %>" alt="Player Photo" style="width: 100px; height: auto; border-radius: 50%;"></td>
+                    <td><%= detail.playerno %></td>
+                    <td><%= detail.jerseyno %></td>
+                    <td><%= detail.name %></td>
+                    <td><%= detail.age %></td>
+                    <td><%= detail.app %></td>
+                    <td><%= detail.goal %></td>
+                    <td><%= detail.assist %></td>
+                    <td><%= detail.card %></td>
+                    <td>
+                        <form action="/delete" method="post" style="display:inline;">
+                            <input type="hidden" name="playerno" value="<%= detail.playerno %>">
+                            <button type="submit">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <form action="/clear" method="post" style="text-align:center; margin-top:20px;">
+            <button type="submit" class="clear-btn">Clear All</button>
+        </form>
+    <% } else { %>
+        <p style="text-align:center; color: #fff;">No Players found. Please add some players.</p>
+    <% } %>
+</body>
+</html>

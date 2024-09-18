@@ -1,0 +1,213 @@
+/* Importing Fonts and Icons */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease-in-out;
+}
+
+h1 {
+    color: #fff;
+    margin-top: 20px;
+    font-size: 3.5em;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+    animation: fadeInHeader 1s ease-in-out;
+}
+
+/* Form Styles */
+form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    margin: 30px auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    text-align: left;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+}
+
+form h3 {
+    margin-bottom: 25px;
+    font-size: 2.5em;
+    color: #5b86e5;
+    font-weight: 700;
+    position: relative;
+}
+
+form h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    background: #5b86e5;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    border-radius: 5px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+    width: calc(100% - 24px);
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 2px solid #5b86e5;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: fadeInInput 1s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus {
+    border-color: #4a76d2;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Submit Buttons */
+button[type="submit"] {
+    background: linear-gradient(45deg, #5b86e5, #36d1dc);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: pulse 2s infinite;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(45deg, #4a76d2, #2d9cdb);
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.95);
+}
+
+/* Table Styles */
+table {
+    width: 90%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.9);
+    animation: slideIn 1s ease-in-out;
+}
+
+table thead {
+    background: linear-gradient(45deg, #5b86e5, #36d1dc);
+    color: white;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #e1f5fe;
+    color: #5b86e5;
+}
+
+table tbody tr td {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+table tbody tr:hover td {
+    background-color: #b3e5fc;
+}
+
+/* Buttons */
+button.clear-btn {
+    background: linear-gradient(45deg, #ff4b5c, #ff6f61);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    animation: bounce 1s infinite;
+}
+
+button.clear-btn:hover {
+    background: linear-gradient(45deg, #ff4b5c, #ff3d2e);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    form, table {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2.8em;
+    }
+
+    form h3 {
+        font-size: 2em;
+    }
+
+    table th, table td {
+        font-size: 1em;
+        padding: 12px;
+    }
+
+    button[type="submit"], button.clear-btn {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInHeader {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInInput {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(-15px); }
+}
